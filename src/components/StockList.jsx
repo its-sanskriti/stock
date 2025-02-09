@@ -18,7 +18,7 @@ const StocksList = () => {
     setIsLoading(true); // Start loading
     try {
       const response = await axios.get(
-        `https://your-backend-service.onrender.com/api/stocks?exchange=${exchange}`
+        `https://stockapi-ouu2.onrender.com/api/stocks?exchange=${exchange}`
       );
       setStocks(response.data.stocks);
     } catch (error) {

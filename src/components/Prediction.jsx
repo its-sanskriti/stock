@@ -21,7 +21,7 @@ function Prediction({ ticker }) {
     setIsLoading(true); // Start loading
     try {
       const res = await axios.get(
-        `https://your-backend-service.onrender.com/api/stock/predict?ticker=${ticker}`
+        `https://stockapi-ouu2.onrender.com/api/stock/predict?ticker=${ticker}`
       );
       setPredictedData(res.data.predictions || []);
       setPredictedDates(res.data.predicted_dates || []); // Updated

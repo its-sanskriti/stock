@@ -40,7 +40,7 @@ function Stockdata() {
     setIsLoading(true); // Start loading
     try {
       const res = await axios.get(
-        `https://your-backend-service.onrender.com/api/stock?ticker=${ticker}&chart_period=${chartPeriod}&table_period=${tablePeriod}`
+        `https://stockapi-ouu2.onrender.com/api/stock?ticker=${ticker}&chart_period=${chartPeriod}&table_period=${tablePeriod}`
       );
       setStockData(res.data.stock_data);
       setGraphData1(JSON.parse(res.data.graph_data1));
