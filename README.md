@@ -89,4 +89,5 @@ The **Stock Analyzer** project is a complete stock market analysis tool utilizin
 
 ## 🤝 Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Please Explore the Issues to Contribute.
+Pull requests are welcome. For major changes or new updates please open an issue first to discuss what you would like to change.
