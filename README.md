@@ -1,4 +1,4 @@
-# 📈 Stock Analyzer - Frontend (React)
+# 📈 Stock Analyzer
 
 The **Stock Analyzer** project is a complete stock market analysis tool utilizing ML models. It allows users to input stock symbols, select date ranges, view historical stock trends, and see future stock price predictions via interactive charts.
 
@@ -30,19 +30,33 @@ The **Stock Analyzer** project is a complete stock market analysis tool utilizin
 ---
 
 ## 📂 Directory Structure
-📁 stock-analyzer-frontend
-┣ 📁 public
-┣ 📁 src
-┃ ┣ 📁 components
-┃ ┃ ┣ 📜 StockForm.jsx
-┃ ┃ ┣ 📜 StockChart.jsx
-┃ ┃ ┗ 📜 PredictionTable.jsx
-┃ ┣ 📁 assets (add your images here)
-┃ ┗ 📜 App.js
-┣ 📜 .env
-┣ 📜 package.json
-┗ 📜 README.md
-
+```
+└── srigadaakshaykumar-stock/  
+   ├── README.md # Project documentation  
+   ├── package.json # Node.js dependencies and scripts  
+   ├── Images/  
+   ├── backend/ # Backend code  
+   │    ├── Model.keras # Trained machine learning model  
+   │    └── app.py # Backend server code  
+   ├── public/  
+   │    ├── index.html  
+   │    ├── manifest.json   
+   │    └── robots.txt  
+   └── src/   
+      ├── App.css # Main stylesheet  
+      ├── App.js # Main React component  
+      ├── App.test.js   
+      ├── index.css    
+      ├── index.js  
+      ├── reportWebVitals.js  
+      ├── setupTests.js  
+      └── components/ # Reusable React components  
+         ├── Footer.jsx # Footer component  
+         ├── Header.jsx # Header component  
+         ├── Prediction.jsx # Prediction component  
+         ├── StockList.jsx # Stock list component  
+         └── Stockdata.jsx # Stock data component  
+```
 ---
 
 ## Project Architecture
