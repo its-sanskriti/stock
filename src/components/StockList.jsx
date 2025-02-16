@@ -62,7 +62,8 @@ const StocksList = () => {
       {isLoading ? (
         <div className="loading-spinner">
           <ClipLoader color="#36d7b7" size={50} /> {/* Loading animation */}
-          <p>Loading stocks...</p>
+          <p>please wait while Loading...</p>
+          <p>It takes less than a minuate</p>
         </div>
       ) : (
         <div className="table-container">
