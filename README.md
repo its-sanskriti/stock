@@ -57,6 +57,16 @@ The **Stock Analyzer** project is a complete stock market analysis tool utilizin
          ├── StockList.jsx # Stock list component  
          └── Stockdata.jsx # Stock data component  
 ```
+
+---
+
+## API Endpoints
+| **Endpoint**                | **Method** | **Description**                      |
+|----------------------------|-----------|--------------------------------------|
+| `/api/stocks/<ticker>`     | GET       | Fetch historical stock data         |
+| `/api/predict/<ticker>`    | GET       | Predict future stock prices         |
+| `/api/profit-calculator`   | POST      | Calculate stock returns             |
+
 ---
 
 ## Project Architecture
