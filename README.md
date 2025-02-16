@@ -69,11 +69,8 @@ The **Stock Analyzer** project is a complete stock market analysis tool utilizin
 
 ---
 
-## Project Architecture
-![Home Page](Images/home.png)
-
 ## Data Pipeline Architecture
-![Home Page](Images/home.png)
+![Home Page](Images/dataline.png)
 
 ---
 
