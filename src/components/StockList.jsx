@@ -52,11 +52,6 @@ const StocksList = () => {
       <div className="exchange-buttons">
         <button onClick={() => setExchange("BSE")}>BSE</button>
         <button onClick={() => setExchange("NSE")}>NSE</button>
-        <button onClick={() => setExchange("US")}>US Market</button>
-        <button onClick={() => setExchange("Cryptocurrency")}>
-          Cryptocurrency
-        </button>
-        <button onClick={() => setExchange("UK")}>UK Market</button>
       </div>
 
       {isLoading ? (
