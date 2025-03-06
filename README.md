@@ -1,24 +1,24 @@
-# 📈 Stock Analyzer
+# Stock Analyzer
 
 The **Stock Analyzer** project is a complete stock market analysis tool utilizing ML models. It allows users to input stock symbols, select date ranges, view historical stock trends, and see future stock price predictions via interactive charts.
 
-## 🚀 Live Demo
+## Live Demo
 [View Deployed App on Render](https://aistockanalyzer.onrender.com)
 
 ---
 
 ## Overview 
-### 📊 Home Page  
+### Home Page  
 ![Home Page](Images/home.png)
 
-### 📈 Stock Analysis View  
+### Stock Analysis View  
 ![Stock Analysis](Images/main.png)
 
-### 📈 Stock Predictions
+### Stock Predictions
 ![Stock prediction](Images/prediction.png)
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 - **React:** User Interface  
 - **Plotly.js:** Interactive visualizations  
 - **Axios:** API calls
@@ -29,7 +29,7 @@ The **Stock Analyzer** project is a complete stock market analysis tool utilizin
 
 ---
 
-## 📂 Directory Structure
+## Directory Structure
 ```
 └── srigadaakshaykumar-stock/  
    ├── README.md # Project documentation  
@@ -74,7 +74,7 @@ The **Stock Analyzer** project is a complete stock market analysis tool utilizin
 
 ---
 
-## 📦 Installation and Running Locally
+## Installation and Running Locally
 1. **Clone the repository:**  
    ```bash
    git clone https://github.com/yourusername/stock-analyzer-frontend.git
