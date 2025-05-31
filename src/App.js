@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import StocksList from "./components/StockList";
 import Stockdata from "./components/Stockdata";
 import "./App.css";
