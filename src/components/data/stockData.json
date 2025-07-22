@@ -1,0 +1,14 @@
+{
+  "BSE": [
+    { "symbol": "RELIANCE.BO", "name": "Reliance Industries" },
+    { "symbol": "TCS.BO", "name": "Tata Consultancy Services" },
+    { "symbol": "INFY.BO", "name": "Infosys" },
+    { "symbol": "HDFCBANK.BO", "name": "HDFC Bank" }
+  ],
+  "NSE": [
+    { "symbol": "RELIANCE.NS", "name": "Reliance Industries" },
+    { "symbol": "TCS.NS", "name": "Tata Consultancy Services" },
+    { "symbol": "INFY.NS", "name": "Infosys" },
+    { "symbol": "HDFCBANK.NS", "name": "HDFC Bank" }
+  ]
+}

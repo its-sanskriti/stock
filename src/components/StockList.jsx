@@ -1,36 +1,27 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { ClipLoader } from "react-spinners"; // Import ClipLoader
+import { ClipLoader } from "react-spinners";
+import stockData from "./data/stockData.json"; // Adjust path if stored elsewhere
 
 const StocksList = () => {
   const [stocks, setStocks] = useState([]);
   const [exchange, setExchange] = useState("BSE");
   const [searchTicker, setSearchTicker] = useState("");
-  const [isLoading, setIsLoading] = useState(false); // Add loading state
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchStocks();
+    setIsLoading(true);
+    // Simulate loading delay
+    setTimeout(() => {
+      setStocks(stockData[exchange] || []);
+      setIsLoading(false);
+    }, 500); // 0.5 sec delay
   }, [exchange]);
 
-  const fetchStocks = async () => {
-    setIsLoading(true); // Start loading
-    try {
-      const response = await axios.get(
-        `https://stockapi-ouu2.onrender.com/api/stocks?exchange=${exchange}`
-      );
-      setStocks(response.data.stocks);
-    } catch (error) {
-      console.error("Error fetching stocks:", error);
-    } finally {
-      setIsLoading(false); // Stop loading
-    }
-  };
-
   const handleSearch = () => {
-    if (searchTicker) {
-      navigate(`/stock/${searchTicker}`);
+    if (searchTicker.trim()) {
+      navigate(`/stock/${searchTicker.trim()}`);
     }
   };
 
@@ -49,6 +40,7 @@ const StocksList = () => {
         <button onClick={handleSearch}>Search</button>
       </div>
 
+      {/* Exchange Buttons */}
       <div className="exchange-buttons">
         <button onClick={() => setExchange("BSE")}>BSE</button>
         <button onClick={() => setExchange("NSE")}>NSE</button>
@@ -56,9 +48,9 @@ const StocksList = () => {
 
       {isLoading ? (
         <div className="loading-spinner">
-          <ClipLoader color="#36d7b7" size={50} /> {/* Loading animation */}
+          <ClipLoader color="#36d7b7" size={50} />
           <p>please wait while Loading...</p>
-          <p>It takes less than a minuate</p>
+          <p>It takes less than a minute</p>
         </div>
       ) : (
         <div className="table-container">
@@ -67,24 +59,17 @@ const StocksList = () => {
               <tr>
                 <th>Symbol</th>
                 <th>Name</th>
-                <th>Open</th>
-                <th>High</th>
-                <th>Low</th>
-                <th>Close</th>
               </tr>
             </thead>
             <tbody>
               {stocks.map((stock, index) => (
                 <tr
                   key={index}
+                  style={{ cursor: "pointer" }}
                   onClick={() => navigate(`/stock/${stock.symbol}`)}
                 >
                   <td>{stock.symbol}</td>
                   <td>{stock.name}</td>
-                  <td>{stock.open}</td>
-                  <td>{stock.high}</td>
-                  <td>{stock.low}</td>
-                  <td>{stock.close}</td>
                 </tr>
               ))}
             </tbody>
