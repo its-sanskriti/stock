@@ -3,8 +3,13 @@ name: Auto Comment Bot
 on:
   issues:
     types: [opened]
-  pull_request:
+  pull_request_target: # <-- Changed from pull_request for correct permissions on forked PRs
     types: [opened]
+
+permissions: # <-- Added recommended permissions for commenting
+  issues: write
+  pull-requests: write
+  contents: read
 
 jobs:
   comment:
