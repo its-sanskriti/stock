@@ -40,13 +40,14 @@ function Stockdata() {
     setIsLoading(true); // Start loading
     try {
       const res = await axios.get(
-        `https://stockapi-ouu2.onrender.com/api/stock?ticker=${ticker}&chart_period=${chartPeriod}&table_period=${tablePeriod}`
+        `${process.env.REACT_APP_API_URL}/api/stock?ticker=${ticker}&chart_period=${chartPeriod}&table_period=${tablePeriod}`
       );
+
       setStockData(res.data.stock_data);
       setGraphData1(JSON.parse(res.data.graph_data1));
       setGraphData2(JSON.parse(res.data.graph_data2));
       setStockInfo(res.data.stock_info);
-      setNews(res.data.stock_news || []);
+      setNews(Array.isArray(res.data.stock_news) ? res.data.stock_news : []);
     } catch (error) {
       console.error("Error fetching stock data:", error);
     } finally {
