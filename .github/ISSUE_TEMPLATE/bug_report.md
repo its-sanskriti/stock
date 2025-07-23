@@ -10,6 +10,13 @@ assignees: ""
 
 "Mention a clear and concise description of what the bug is."
 
+## Where is the issue?
+
+select Frontend or backend
+
+- [ ] Frontend
+- [ ] Backend
+
 ## Steps to Reproduce
 
 Example:

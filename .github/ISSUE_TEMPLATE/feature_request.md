@@ -14,6 +14,13 @@ assignees: ""
 
 Why is this feature useful? What problem does it solve?
 
+## Where you want to add this feature
+
+select Frontend or backend
+
+- [ ] Frontend
+- [ ] Backend
+
 ## Screenshots or Examples
 
 (Optional) Include visuals or references for inspiration.

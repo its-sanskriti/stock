@@ -10,9 +10,16 @@ assignees: ""
 
 "Describe the current behavior and how you think it can be improved."
 
-## Rationale
+## Reason
 
 Why is this change needed? What’s the benefit?
+
+## Select Enhancement part
+
+select Frontend or backend
+
+- [ ] Frontend
+- [ ] Backend
 
 ## Visual Comparison (Optional)
 
