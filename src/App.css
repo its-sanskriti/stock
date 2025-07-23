@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -5,6 +9,7 @@ body {
   padding: 0;
   text-align: center;
 }
+
 .loading-spinner {
   display: flex;
   flex-direction: column;
@@ -14,6 +19,7 @@ body {
   font-size: 1.2rem;
   color: #333;
 }
+
 html,
 body,
 #root,
@@ -28,6 +34,7 @@ body,
 .content {
   flex: 1;
 }
+
 .header {
   background-color: #282c34;
   color: white;
@@ -65,6 +72,7 @@ body,
 .nav-link:hover {
   text-decoration: underline;
 }
+
 .footer {
   display: flex;
   justify-content: space-evenly;
@@ -104,6 +112,7 @@ body,
 .social-link:hover {
   text-decoration: underline;
 }
+
 input[type="text"] {
   padding: 10px;
   width: 250px;
@@ -112,6 +121,7 @@ input[type="text"] {
   border-radius: 5px;
   font-size: 16px;
 }
+
 /* 93cec91a56f44f68aa17388fa721378d */
 button {
   padding: 10px 15px;
@@ -141,16 +151,19 @@ button:hover {
 .vis2 {
   width: 100%;
   max-width: 900px;
-  max-height: 500px; /* Prevents it from being too tall */
+  max-height: 500px;
+  /* Prevents it from being too tall */
   background: #fff;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: auto; /* Enables scrollbar only if needed */
+  overflow: auto;
+  /* Enables scrollbar only if needed */
 }
 
-.vis2 > div {
+.vis2>div {
   width: 100% !important;
-  min-height: 400px; /* Ensures a proper minimum height */
+  min-height: 400px;
+  /* Ensures a proper minimum height */
 }
 
 svg {
@@ -180,6 +193,7 @@ svg {
   align-items: center;
   flex-direction: column;
 }
+
 .table {
   width: 100%;
   display: flex;
@@ -189,8 +203,10 @@ svg {
 }
 
 .table-container {
-  overflow-x: auto; /* Enables horizontal scrolling */
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+  overflow-x: auto;
+  /* Enables horizontal scrolling */
+  -webkit-overflow-scrolling: touch;
+  /* Smooth scrolling on mobile */
   width: 100%;
 }
 
@@ -199,11 +215,13 @@ td {
   padding: 8px;
   text-align: left;
   border: 1px solid #ddd;
-  white-space: nowrap; /* Prevents text from breaking into new lines */
+  white-space: nowrap;
+  /* Prevents text from breaking into new lines */
 }
 
 td:first-child {
-  min-width: 100px; /* Ensures enough width for the symbol column */
+  min-width: 100px;
+  /* Ensures enough width for the symbol column */
 }
 
 table {
@@ -230,6 +248,7 @@ table th {
 table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+
 .stocks-list {
   padding: 20px 10px;
   font-family: Arial, sans-serif;
@@ -264,6 +283,7 @@ table tr:hover {
   background-color: #f5f5f5;
   cursor: pointer;
 }
+
 .section2 {
   display: flex;
   flex-wrap: wrap;
@@ -283,6 +303,7 @@ table tr:hover {
   min-width: 300px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .news {
   background: #fff;
   padding: 20px;
@@ -350,6 +371,7 @@ strong {
 .news-item a:hover {
   background-color: #007bffc8;
 }
+
 /* General Styles */
 .predict {
   width: 100%;
@@ -357,6 +379,7 @@ strong {
   justify-content: space-evenly;
   font-family: Arial, sans-serif;
 }
+
 /* Loading Spinner */
 .loading-spinner {
   display: flex;
@@ -372,7 +395,8 @@ strong {
 .predict1 {
   margin-bottom: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  overflow-x: auto; /* Enables horizontal scroll */
+  overflow-x: auto;
+  /* Enables horizontal scroll */
   -webkit-overflow-scrolling: touch;
 }
 
@@ -383,8 +407,9 @@ strong {
   margin-bottom: 15px;
 }
 
-.predict1 > div {
-  min-width: 600px; /* Ensures chart width triggers scroll on mobile */
+.predict1>div {
+  min-width: 600px;
+  /* Ensures chart width triggers scroll on mobile */
 }
 
 /* Investment Returns Table */
@@ -393,7 +418,8 @@ strong {
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  overflow-x: auto; /* Enables table scroll on smaller screens */
+  overflow-x: auto;
+  /* Enables table scroll on smaller screens */
 }
 
 .predict2 h2 {
@@ -415,7 +441,8 @@ td {
   padding: 12px;
   text-align: center;
   border: 1px solid #ddd;
-  white-space: nowrap; /* Prevents data from breaking into new lines */
+  white-space: nowrap;
+  /* Prevents data from breaking into new lines */
 }
 
 th {
@@ -427,37 +454,45 @@ th {
 tr:nth-child(even) {
   background-color: #f9f9f9;
 }
+
 @media (max-width: 500px) {
   .section2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
+
   .stock-info {
     width: 95%;
     padding: 10px;
   }
+
   .visualization {
     padding: 2rem 0;
   }
+
   .news {
     width: 95%;
     padding: 1rem 0;
   }
+
   .predict {
     width: 100%;
     flex-direction: column;
   }
+
   .predict12 {
     width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
+
   .table-container {
     width: 95%;
     overflow-x: auto;
   }
+
   th,
   td {
     padding: 6px;
@@ -468,6 +503,7 @@ tr:nth-child(even) {
   td:first-child {
     min-width: 120px;
   }
+
   .predict1 {
     width: 100%;
     margin: 0 1rem;
@@ -475,32 +511,38 @@ tr:nth-child(even) {
     display: block;
   }
 
-  .predict1 > div {
-    min-width: 900px; /* Force the chart to exceed mobile screen width */
+  .predict1>div {
+    min-width: 900px;
+    /* Force the chart to exceed mobile screen width */
   }
 
   .predict1 h2 {
     font-size: 18px;
     padding: 0 10px;
   }
+
   .predict2 {
     width: 100%;
     margin: 1rem;
     padding: 0;
   }
+
   .footer {
     margin-top: 10px;
   }
+
   .footer-content {
     flex-direction: column;
     gap: 0.6rem;
   }
 }
+
 @media (max-width: 360px) {
   input[type="text"] {
     width: 200px;
   }
 }
+
 /* Login and signup */
 
 .auth-container {
@@ -549,4 +591,26 @@ tr:nth-child(even) {
 .auth-container p {
   text-align: center;
   margin-top: 20px;
+}
+
+@media (max-width:320px) {
+
+  .header-content {
+    padding: 0 10px;
+  }
+
+  .header-title {
+    margin-right: 20px !important;
+    font-size: 16px !important;
+  }
+
+  .header-nav {
+    display: flex;
+    gap: 15px !important;
+    align-items: center;
+  }
+
+  .header-nav a {
+    font-size: 14px !important;
+  }
 }
