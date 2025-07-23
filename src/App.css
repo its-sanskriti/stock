@@ -1,3 +1,8 @@
+/* ==========================================================================
+   Stock Analyzer - Main Stylesheet (with Enhanced Header & Footer)
+   ========================================================================== */
+
+/* --- Global & Base Styles --- */
 * {
   box-sizing: border-box;
 }
@@ -35,84 +40,258 @@ body,
   flex: 1;
 }
 
+/* --- ENHANCED HEADER STYLES (Unchanged) --- */
 .header {
   background-color: #282c34;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.logo {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-}
-
-.header-title {
-  margin: 0;
-  font-size: 24px;
-}
-
-.header-nav {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.nav-link {
-  color: white;
   text-decoration: none;
-  font-size: 16px;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: #a2d2ff;
+  text-decoration: none;
+}
+
+.logo-icon {
+  margin-right: 0.75rem;
+  color: #007bff;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link,
+.nav-link-welcome,
+.nav-link-button {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+  background: none;
+  border: none;
   cursor: pointer;
 }
 
-.nav-link:hover {
-  text-decoration: underline;
-}
-
-.footer {
-  display: flex;
-  justify-content: space-evenly;
-  background-color: #282c34;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-  margin-top: 40px;
-}
-
-.footer-content {
+.nav-link::after {
+  content: '';
+  position: absolute;
   width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #007bff;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #a2d2ff;
+  text-decoration: none;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.nav-link-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  color: #007bff;
+}
+
+.nav-link-button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.nav-link-welcome {
+  color: #ccc;
+  cursor: default;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 1100;
+  color: white;
+}
+
+/* ==========================================================================
+   ENHANCED MULTI-COLUMN FOOTER STYLES (DARK THEME)
+   ========================================================================== */
+
+.footer-enhanced {
+  background-color: #282c34; /* Matches the header color */
+  color: #ccc; /* Light text for readability on dark background */
+  padding: 4rem 2rem 2rem 2rem;
+  border-top: 1px solid #3a3f47; /* A subtle separator line */
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.footer-column h4 {
+  color: white; /* White heading color */
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.footer-column h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 30px;
+  height: 2px;
+  background-color: #007bff; /* Your theme's accent color */
+}
+
+.footer-column p {
+  line-height: 1.7;
+  font-size: 0.95rem;
+  color: #a9a9a9; /* Slightly dimmer text for paragraphs */
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-column ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.newsletter-form input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #444;
+  border-radius: 5px 0 0 5px;
+  font-size: 1rem;
+  border-right: none;
+  background-color: #3a3f47; /* Darker input background */
+  color: white;
+}
+.newsletter-form input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.newsletter-form button {
+  padding: 0.75rem 1rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-weight: 600;
   margin: 0;
+}
+.newsletter-form button:hover {
+  background-color: #0056b3;
+}
+
+/* --- Footer Bottom Bar --- */
+.footer-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding-top: 2rem;
+  border-top: 1px solid #3a3f47;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.footer-text {
-  margin: 0;
-  font-size: 14px;
+.copyright-text {
+  font-size: 0.9rem;
+  color: #888;
 }
 
-.footer-social {
+.footer-social-icons {
   display: flex;
-  gap: 20px;
+  gap: 1.5rem;
 }
 
-.social-link {
-  color: white;
+.footer-social-icons a {
+  color: #ccc;
+  font-size: 1.3rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social-icons a:hover {
+  color: #007bff;
+  transform: translateY(-3px);
   text-decoration: none;
-  font-size: 14px;
-  cursor: pointer;
 }
-
-.social-link:hover {
-  text-decoration: underline;
-}
-
+/* --- YOUR EXISTING COMPONENT STYLES (Unchanged) --- */
 input[type="text"] {
   padding: 10px;
   width: 250px;
@@ -122,7 +301,6 @@ input[type="text"] {
   font-size: 16px;
 }
 
-/* 93cec91a56f44f68aa17388fa721378d */
 button {
   padding: 10px 15px;
   margin: 5px;
@@ -152,18 +330,15 @@ button:hover {
   width: 100%;
   max-width: 900px;
   max-height: 500px;
-  /* Prevents it from being too tall */
   background: #fff;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   overflow: auto;
-  /* Enables scrollbar only if needed */
 }
 
 .vis2>div {
   width: 100% !important;
   min-height: 400px;
-  /* Ensures a proper minimum height */
 }
 
 svg {
@@ -171,7 +346,6 @@ svg {
   height: auto;
 }
 
-/* Custom Scrollbar Styling */
 .vis2::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -204,9 +378,7 @@ svg {
 
 .table-container {
   overflow-x: auto;
-  /* Enables horizontal scrolling */
   -webkit-overflow-scrolling: touch;
-  /* Smooth scrolling on mobile */
   width: 100%;
 }
 
@@ -216,12 +388,10 @@ td {
   text-align: left;
   border: 1px solid #ddd;
   white-space: nowrap;
-  /* Prevents text from breaking into new lines */
 }
 
 td:first-child {
   min-width: 100px;
-  /* Ensures enough width for the symbol column */
 }
 
 table {
@@ -270,13 +440,6 @@ table tr:nth-child(even) {
 
 .exchange-buttons button:hover {
   background-color: #0056b3;
-}
-
-table th,
-table td {
-  padding: 10px;
-  border: 1px solid #ddd;
-  text-align: left;
 }
 
 table tr:hover {
@@ -372,7 +535,6 @@ strong {
   background-color: #007bffc8;
 }
 
-/* General Styles */
 .predict {
   width: 100%;
   display: flex;
@@ -380,23 +542,10 @@ strong {
   font-family: Arial, sans-serif;
 }
 
-/* Loading Spinner */
-.loading-spinner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 200px;
-  font-size: 16px;
-  color: #333;
-}
-
-/* Predicted vs Actual Chart */
 .predict1 {
   margin-bottom: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow-x: auto;
-  /* Enables horizontal scroll */
   -webkit-overflow-scrolling: touch;
 }
 
@@ -409,17 +558,14 @@ strong {
 
 .predict1>div {
   min-width: 600px;
-  /* Ensures chart width triggers scroll on mobile */
 }
 
-/* Investment Returns Table */
 .predict2 {
   background-color: white;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow-x: auto;
-  /* Enables table scroll on smaller screens */
 }
 
 .predict2 h2 {
@@ -429,122 +575,7 @@ strong {
   margin-bottom: 15px;
 }
 
-/* Table Styles */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #fff;
-}
-
-th,
-td {
-  padding: 12px;
-  text-align: center;
-  border: 1px solid #ddd;
-  white-space: nowrap;
-  /* Prevents data from breaking into new lines */
-}
-
-th {
-  background-color: #007bff;
-  color: white;
-  font-weight: bold;
-}
-
-tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-@media (max-width: 500px) {
-  .section2 {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .stock-info {
-    width: 95%;
-    padding: 10px;
-  }
-
-  .visualization {
-    padding: 2rem 0;
-  }
-
-  .news {
-    width: 95%;
-    padding: 1rem 0;
-  }
-
-  .predict {
-    width: 100%;
-    flex-direction: column;
-  }
-
-  .predict12 {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .table-container {
-    width: 95%;
-    overflow-x: auto;
-  }
-
-  th,
-  td {
-    padding: 6px;
-    font-size: 14px;
-    white-space: nowrap;
-  }
-
-  td:first-child {
-    min-width: 120px;
-  }
-
-  .predict1 {
-    width: 100%;
-    margin: 0 1rem;
-    overflow-x: auto;
-    display: block;
-  }
-
-  .predict1>div {
-    min-width: 900px;
-    /* Force the chart to exceed mobile screen width */
-  }
-
-  .predict1 h2 {
-    font-size: 18px;
-    padding: 0 10px;
-  }
-
-  .predict2 {
-    width: 100%;
-    margin: 1rem;
-    padding: 0;
-  }
-
-  .footer {
-    margin-top: 10px;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-}
-
-@media (max-width: 360px) {
-  input[type="text"] {
-    width: 200px;
-  }
-}
-
-/* Login and signup */
-
+/* Auth Pages */
 .auth-container {
   max-width: 400px;
   margin: 80px auto;
@@ -593,24 +624,129 @@ tr:nth-child(even) {
   margin-top: 20px;
 }
 
-@media (max-width:320px) {
+/* --- ALL RESPONSIVE STYLES --- */
 
-  .header-content {
-    padding: 0 10px;
+/* For Tablets and Mobile */
+@media (max-width: 768px) {
+  /* Header mobile styles */
+  .header {
+    padding: 1rem;
+  }
+  
+  .menu-icon {
+    display: block;
   }
 
-  .header-title {
-    margin-right: 20px !important;
-    font-size: 16px !important;
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 60%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background-color: #282c34;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    transition: right 0.4s ease-in-out;
   }
 
-  .header-nav {
-    display: flex;
-    gap: 15px !important;
+  .nav-links.nav-open {
+    right: 0;
+  }
+
+  .nav-link, .nav-link-button, .nav-link-welcome {
+    font-size: 1.2rem;
+  }
+
+  /* New Footer mobile styles */
+  .footer-main {
+    text-align: left;
+  }
+  .footer-bottom {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+}
+
+/* For Smaller Mobile Devices */
+@media (max-width: 500px) {
+  .section2 {
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
   }
 
-  .header-nav a {
-    font-size: 14px !important;
+  .stock-info, .news {
+    width: 95%;
+    padding: 10px;
   }
+
+  .visualization {
+    padding: 2rem 0;
+  }
+
+  .predict {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .predict12 {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .table-container {
+    width: 95%;
+    overflow-x: auto;
+  }
+
+  th,
+  td {
+    padding: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  td:first-child {
+    min-width: 120px;
+  }
+
+  .predict1 {
+    width: 100%;
+    margin: 0 1rem;
+    overflow-x: auto;
+    display: block;
+  }
+
+  .predict1>div {
+    min-width: 900px;
+  }
+
+  .predict1 h2 {
+    font-size: 18px;
+    padding: 0 10px;
+  }
+
+  .predict2 {
+    width: 100%;
+    margin: 1rem;
+    padding: 0;
+  }
+
+  /* Note: The old .footer-content style was here and has been removed */
+}
+
+/* For Very Small Mobile Devices */
+@media (max-width: 360px) {
+  input[type="text"] {
+    width: 200px;
+  }
+}
+
+@media (max-width:320px) {
+  /* No longer need specific header adjustments as the menu handles it */
 }
