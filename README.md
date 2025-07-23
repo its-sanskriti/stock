@@ -120,3 +120,4 @@ Please make sure to:
 
 - Review our [Contribution Guidelines](./CONTRIBUTION.md)
 - Follow the [Setup Instructions](./SETUP.md) to run the project locally
+- Join the [Discord](https://discord.gg/ypQSaPbsDv)
