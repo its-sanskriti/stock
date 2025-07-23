@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom"; // ✅ Use Link instead of <a>
 import { AuthContext } from "./AuthContext";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase";
@@ -20,15 +21,15 @@ const Header = () => {
       <div className="header-content">
         <h1 className="header-title">Stock Analyzer</h1>
         <nav className="header-nav">
-          <a href="/" className="nav-link">
+          <Link to="/" className="nav-link">
             Home
-          </a>
-          <a href="/" className="nav-link">
+          </Link>
+          <Link to="/" className="nav-link">
             About
-          </a>
-          <a href="/" className="nav-link">
+          </Link>
+          <Link to="/" className="nav-link">
             Contact
-          </a>
+          </Link>
           {currentUser ? (
             <>
               <span className="nav-link">{getUsername(currentUser.email)}</span>
@@ -37,9 +38,9 @@ const Header = () => {
               </button>
             </>
           ) : (
-            <a href="/login" className="nav-link">
+            <Link to="/login" className="nav-link">
               Login
-            </a>
+            </Link>
           )}
         </nav>
       </div>
