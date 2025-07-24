@@ -121,3 +121,8 @@ Please make sure to:
 - Review our [Contribution Guidelines](./CONTRIBUTION.md)
 - Follow the [Setup Instructions](./SETUP.md) to run the project locally
 - Join the [Discord](https://discord.gg/ypQSaPbsDv)
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).  
+You’re free to use, modify, and share this software under the license terms.
