@@ -69,16 +69,19 @@ def fetch_stock_news(ticker):
         company_name = stock.info.get("longName", ticker)
         search_query = company_name.replace("&", "and")
         NEWS_API_KEY = os.getenv("NEWS_API_KEY")
+        if not NEWS_API_KEY:
+            return "No news available"
         url = f'https://newsapi.org/v2/everything?q={search_query}&apiKey={NEWS_API_KEY}'
         response = requests.get(url)
         news_data = response.json()
         
         if news_data.get("status") == "ok":
-            return news_data.get("articles", [])[:3]
+            articles = news_data.get("articles", [])[:3]
+            return articles if articles else "No news available"
         else:
-            return []
+            return "No news available"
     except Exception as e:
-        return str(e)
+        return "No news available"
 
 @app.route('/api/stock', methods=['GET'])
 def get_stock_data():
