@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
-import stockData from "./data/stockData.json"; // Adjust path if stored elsewhere
+import { motion, AnimatePresence } from "framer-motion";
+import stockData from "./data/stockData.json";
 
 const StocksList = () => {
   const [stocks, setStocks] = useState([]);
@@ -12,11 +13,10 @@ const StocksList = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    // Simulate loading delay
     setTimeout(() => {
       setStocks(stockData[exchange] || []);
       setIsLoading(false);
-    }, 500); // 0.5 sec delay
+    }, 500);
   }, [exchange]);
 
   const handleSearch = () => {
@@ -25,58 +25,152 @@ const StocksList = () => {
     }
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        when: "beforeChildren",
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5 }
+    }
+  };
+
+  const tableRowVariants = {
+    hidden: { x: -50, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.3 }
+    },
+    hover: {
+      scale: 1.02,
+      backgroundColor: "#e3f2fd",
+      transition: { duration: 0.2 }
+    }
+  };
+
   return (
-    <div className="stocks-list">
-      <h1>Stocks List</h1>
+    <motion.div 
+      className="stocks-list"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.h1 variants={itemVariants}>
+        Stocks List
+      </motion.h1>
 
       {/* Search Bar */}
-      <div>
-        <input
+      <motion.div variants={itemVariants}>
+        <motion.input
           type="text"
           placeholder="Enter stock ticker"
           value={searchTicker}
           onChange={(e) => setSearchTicker(e.target.value)}
+          whileFocus={{ scale: 1.05 }}
+          transition={{ duration: 0.2 }}
         />
-        <button onClick={handleSearch}>Search</button>
-      </div>
+        <motion.button 
+          onClick={handleSearch}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Search
+        </motion.button>
+      </motion.div>
 
       {/* Exchange Buttons */}
-      <div className="exchange-buttons">
-        <button onClick={() => setExchange("BSE")}>BSE</button>
-        <button onClick={() => setExchange("NSE")}>NSE</button>
-      </div>
+      <motion.div className="exchange-buttons" variants={itemVariants}>
+        {["BSE", "NSE"].map((exchangeName) => (
+          <motion.button
+            key={exchangeName}
+            onClick={() => setExchange(exchangeName)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            animate={{
+              backgroundColor: exchange === exchangeName ? "#0056b3" : "#007bff"
+            }}
+          >
+            {exchangeName}
+          </motion.button>
+        ))}
+      </motion.div>
 
-      {isLoading ? (
-        <div className="loading-spinner">
-          <ClipLoader color="#36d7b7" size={50} />
-          <p>please wait while Loading...</p>
-          <p>It takes less than a minute</p>
-        </div>
-      ) : (
-        <div className="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Symbol</th>
-                <th>Name</th>
-              </tr>
-            </thead>
-            <tbody>
-              {stocks.map((stock, index) => (
-                <tr
-                  key={index}
-                  style={{ cursor: "pointer" }}
-                  onClick={() => navigate(`/stock/${stock.symbol}`)}
-                >
-                  <td>{stock.symbol}</td>
-                  <td>{stock.name}</td>
+      <AnimatePresence mode="wait">
+        {isLoading ? (
+          <motion.div 
+            key="loading"
+            className="loading-spinner"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ClipLoader color="#36d7b7" size={50} />
+            <motion.p
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              please wait while Loading...
+            </motion.p>
+            <motion.p
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              It takes less than a minute
+            </motion.p>
+          </motion.div>
+        ) : (
+          <motion.div 
+            key="table"
+            className="table-container"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <table>
+              <thead>
+                <tr>
+                  <th>Symbol</th>
+                  <th>Name</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-    </div>
+              </thead>
+              <tbody>
+                <AnimatePresence>
+                  {stocks.map((stock, index) => (
+                    <motion.tr
+                      key={`${stock.symbol}-${index}`}
+                      variants={tableRowVariants}
+                      initial="hidden"
+                      animate="visible"
+                      whileHover="hover"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => navigate(`/stock/${stock.symbol}`)}
+                      custom={index}
+                      transition={{ delay: index * 0.05 }}
+                    >
+                      <td>{stock.symbol}</td>
+                      <td>{stock.name}</td>
+                    </motion.tr>
+                  ))}
+                </AnimatePresence>
+              </tbody>
+            </table>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 };
 
