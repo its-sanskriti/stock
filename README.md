@@ -111,7 +111,7 @@ We have a clear roadmap for improvements:
 
 - Allow more API calls per day
 - Reduce response time for end users
-- Add Internatinal stock exchanges
+- Add International stock exchanges
 - Enhance the user interface for better experience
 - Improve machine learning model accuracy
 - Provide more insightful and interactive visualizations
