@@ -17,11 +17,11 @@ export const StockMetricsCard = ({
   previousClose
 }) => {
 
-  const PrevClose = previousClose ?? randomPrice(95, 110);
-  const Open = open ?? randomPrice(100, 120);
-  const Close = close ?? randomPrice(100, 120);
-  const Low = low ?? randomPrice(95, Open);
-  const High = high ?? randomPrice(Open, 125);
+  const PrevClose = previousClose ?? "N/A";
+  const Open = open ?? "N/A";
+  const Close = close ?? "N/A";
+  const Low = low ?? "N/A";
+  const High = high ?? "N/A";
 
   // Formatting the value
   const formatValue = (value) => `$${Number(value).toFixed(2)}`;
@@ -33,7 +33,7 @@ export const StockMetricsCard = ({
     } else if (current < compareWith) {
       return <span className="trend-down">▼</span>;
     }
-    return <span className="trend-neutral">—</span>;
+    return <span className="trend-neutral"> — </span>;
   };
 
   return (
