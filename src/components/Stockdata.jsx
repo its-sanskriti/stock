@@ -173,7 +173,6 @@ function Stockdata() {
                   low={stockInfo.low}
                   previousClose={stockData[0]?.Close}
                 />
-
                 <h1 className="exchange-badge">Exchange : {stockInfo.exchange || "N/A"}</h1>
               </div>
 

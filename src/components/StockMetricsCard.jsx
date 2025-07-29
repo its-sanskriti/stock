@@ -1,13 +1,3 @@
-// Function to generate a random stock price within a specified range
-// This is for simulating stock prices when real data is not available
-
-const randomPrice = (min, max) => {
-  const safeMin = Number(min) || 0;
-  const safeMax = Number(max) || safeMin + 10; 
-  const price = Math.random() * (safeMax - safeMin) + safeMin;
-  return Number(price).toFixed(2);
-};
-
 // StockMetricsCard component to display stock metrics
 export const StockMetricsCard = ({
   open,
@@ -33,7 +23,7 @@ export const StockMetricsCard = ({
     } else if (current < compareWith) {
       return <span className="trend-down">▼</span>;
     }
-    return <span className="trend-neutral"> — </span>;
+    return <span className="trend-neutral">—</span>;
   };
 
   return (
