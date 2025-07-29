@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Prediction from "./Prediction";
 import { ClipLoader } from "react-spinners";
+import { StockMetricsCard } from "./StockMetricsCard";
 
 function Stockdata() {
   const { ticker } = useParams();
@@ -36,6 +37,8 @@ function Stockdata() {
   useEffect(() => {
     fetchStockInfo();
   }, [ticker, chartPeriod, tablePeriod]);
+
+  console.log("Stock Data:", stockData);
 
   const fetchStockInfo = async () => {
     setIsLoading(true);
@@ -163,22 +166,15 @@ function Stockdata() {
                   {ticker} - {stockInfo.name || "Stock"}
                 </h2>
 
-                {Object.entries({
-                  Open: stockInfo.open,
-                  Close: stockInfo.close,
-                  Low: stockInfo.low,
-                  High: stockInfo.high,
-                  Exchange: stockInfo.exchange,
-                }).map(([key, value], index) => (
-                  <h3
-                    key={key}
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: index * 0.1, duration: 0.4 }}
-                  >
-                    <strong>{key}:</strong> {value}
-                  </h3>
-                ))}
+                <StockMetricsCard
+                  open={stockInfo.open}
+                  close={stockInfo.close}
+                  high={stockInfo.high}
+                  low={stockInfo.low}
+                  previousClose={stockData[0]?.Close}
+                />
+
+                <h1 className="exchange-badge">Exchange : {stockInfo.exchange || "N/A"}</h1>
               </div>
 
               <div className="period-buttons" variants={itemVariants}>
