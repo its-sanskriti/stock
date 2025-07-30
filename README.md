@@ -1,4 +1,4 @@
-# Stock Analyzer
+# AI Stock Analyzer
 
 The **Stock Analyzer** project is a complete stock market analysis tool utilizing ML models. It allows users to input stock symbols, select date ranges, view historical stock trends, and see future stock price predictions via interactive charts.
 
