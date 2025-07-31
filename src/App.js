@@ -7,7 +7,9 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import { AuthProvider } from "./components/AuthContext"; // import AuthProvider
+import { AuthProvider } from "./components/AuthContext"; 
+import Watchlist from "./pages/Watchlist";
+
 
 const App = () => {
   return (
@@ -21,6 +23,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/stock/:ticker" element={<Stockdata />} />
+              <Route path="/watchlist" element={<Watchlist />} />
             </Routes>
           </div>
           <Footer />
