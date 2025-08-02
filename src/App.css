@@ -959,6 +959,140 @@ strong {
 .period-buttons button:nth-child(4) { animation-delay: 0.3s; }
 .period-buttons button:nth-child(5) { animation-delay: 0.4s; }
 
+/*  Stock Metrics Card */
+.stock-card {
+  border: 1px solid #e0f2fe; /* Light blue border */
+  border-radius: 0.75rem; /* Slightly more rounded */
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 105, 204, 0.1), 0 2px 4px -1px rgba(0, 105, 204, 0.06);
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.stock-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 105, 204, 0.1), 0 4px 6px -2px rgba(0, 105, 204, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Stock metrics Header */
+.stock-card-header {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid #e0f2fe;
+  background-color: #cee9fc; 
+}
+
+.stock-card-header-cell {
+  padding: 0.75rem;
+  text-align: center;
+  font-weight: 750;
+  font-size: large;
+  color: #007bff; 
+  border-left: 1px solid #87cff7;
+  transition: background-color 0.2s ease;
+}
+
+.stock-card-header-cell:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.stock-card-header-cell:first-child {
+  border-left: none;
+}
+
+/* stock-metric-Body */
+.stock-card-body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #87cff7;
+  border-left: 1px solid #87cff7;
+}
+
+.stock-card-cell {
+  padding: 1rem;
+  text-align: center;
+  border-right: 1px solid #87cff7;
+  transition: all 0.2s ease;
+}
+
+.stock-card-cell:hover {
+  background-color: #f4f5f7;
+}
+
+.stock-card-cell:last-child {
+  border-right: none;
+}
+
+.stock-value {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #000000; 
+}
+
+/* Trend colors */
+.trend-up {
+  size: 20px 20px;
+  margin-left: 0.25rem;
+  color: #16a34a;
+}
+
+.trend-down {
+  margin-left: 0.25rem;
+  color: #dc2626;
+}
+
+/* Exchange badge styling */
+.exchange-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: #ffffff;
+  border-radius: 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid #bae6fd;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.exchange-badge:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+
+/* Period selector styling */
+.select-period {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.select-period button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #bae6fd;
+  border-radius: 0.375rem;
+  background-color: #f0f9ff;
+  color: #0369a1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.select-period button:hover {
+  background-color: #e0f2fe;
+  transform: translateY(-1px);
+}
+
+.select-period button.active {
+  background-color: #0369a1;
+  color: white;
+  border-color: #0369a1;
+}
+
+
 /* --- CONTAINER ANIMATIONS --- */
 .container {
   animation: fadeIn 0.8s ease-out;
@@ -1110,4 +1244,55 @@ strong {
 
 @media (max-width: 320px) {
   /* Mobile optimizations maintained */
+}
+
+
+/* Responsive Style for Stock metric cards */
+/* since the grid wasn't displaying correctly on smaller screens with the existing structure for desktop, so redefined the layout again for smaller screens */
+
+@media (max-width: 768px) {
+  .stock-card-header {
+    display: none;
+  }
+
+  .stock-card-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: auto auto;
+    gap: 0.5rem;
+    border: 1px solid #e0f2fe;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .stock-card-cell:nth-child(1)::before,
+  .stock-card-cell:nth-child(2)::before,
+  .stock-card-cell:nth-child(3)::before,
+  .stock-card-cell:nth-child(4)::before {
+    content: "OPEN";
+    display: block;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 0.25rem;
+  }
+
+  .stock-card-cell:nth-child(1)::before{
+    content: "OPEN";
+  }
+  .stock-card-cell:nth-child(2)::before {
+    content: "CLOSE";
+  }
+  .stock-card-cell:nth-child(3)::before {
+    content: "LOW";
+  }
+  .stock-card-cell:nth-child(4)::before {
+    content: "HIGH";
+  }
+
+  .stock-card-cell {
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+
 }

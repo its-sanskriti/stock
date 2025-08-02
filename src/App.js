@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import { AuthProvider } from "./components/AuthContext"; 
 import Watchlist from "./pages/Watchlist";
+import ContactForm from "./components/ContactForm"; 
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
               <Route path="/signup" element={<Signup />} />
               <Route path="/stock/:ticker" element={<Stockdata />} />
               <Route path="/watchlist" element={<Watchlist />} />
+              <Route path="/contact" element={<ContactForm />} />
             </Routes>
           </div>
           <Footer />
