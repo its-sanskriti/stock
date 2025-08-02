@@ -1,18 +1,20 @@
 // src/components/Header.js
-import React, { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom"; // Use NavLink for active styles
-import { AuthContext } from "./AuthContext";
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom"; 
+import { useAuth } from "./AuthContext"; 
 import { signOut } from "firebase/auth";
-import { auth } from "./firebase"; // Ensure this path is correct
+import { auth } from "../components/firebase";
 import { FaChartLine, FaBars, FaTimes } from "react-icons/fa";
 
+
 const Header = () => {
-  const { currentUser } = useContext(AuthContext);
+const { user: currentUser } = useAuth();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogout = () => {
     signOut(auth);
-    setIsMenuOpen(false); // Close menu on logout
+    setIsMenuOpen(false); 
   };
 
   // Function to close the menu when a link is clicked
@@ -43,12 +45,16 @@ const Header = () => {
           </NavLink>
 
           {/* === ADDED LINKS START HERE === */}
-          <NavLink to="/about" className="nav-link" onClick={closeMenu}>
-            About
-          </NavLink>
-          <NavLink to="/contact" className="nav-link" onClick={closeMenu}>
-            Contact
-          </NavLink>
+         <NavLink to="/about" className="nav-link" onClick={closeMenu}>
+  About
+</NavLink>
+<NavLink to="/contact" className="nav-link" onClick={closeMenu}>
+  Contact
+</NavLink>
+<NavLink to="/watchlist" className="nav-link" onClick={closeMenu}>
+  My Watchlist
+</NavLink>
+
           {/* === ADDED LINKS END HERE === */}
 
           {currentUser ? (
