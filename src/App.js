@@ -8,6 +8,8 @@ import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import { AuthProvider } from "./components/AuthContext"; // import AuthProvider
+import ContactForm from "./components/ContactForm"; 
+
 
 const App = () => {
   return (
@@ -21,6 +23,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/stock/:ticker" element={<Stockdata />} />
+              <Route path="/contact" element={<ContactForm />} />
             </Routes>
           </div>
           <Footer />
