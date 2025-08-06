@@ -5,11 +5,15 @@ Uses yfinance to fetch historical stock data and applies a linear regression mod
 to forecast closing prices for the next 10 years.
 """
 
-import yfinance as yf
+
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from datetime import datetime, timedelta
 from flask import jsonify
+import pandas as pd
+import os
+
+DATA_FOLDER = os.path.join('backend', 'data')
 
 def predict_stock_handler(request):
     """
@@ -29,15 +33,21 @@ def predict_stock_handler(request):
         return jsonify({'error': 'Ticker symbol is required'}), 400
 
     try:
-        # Fetch 5 years of historical data
-        data = yf.download(ticker, period='5y')
-        if data.empty:
-            return jsonify({'error': 'No data found for the given ticker'}), 404
+        # Load CSV data from local file
+        file_path = os.path.join(DATA_FOLDER, f"{ticker}.csv")
+        if not os.path.exists(file_path):
+            return jsonify({'error': f'CSV data not found for the ticker symbol: {ticker}'}), 404
 
-        # Prepare features and target
-        data['Date'] = data.index
-        data['Date'] = data['Date'].map(datetime.toordinal)
-        X = data['Date'].values.reshape(-1, 1)
+        data = pd.read_csv(file_path)
+        if data.empty or 'Date' not in data.columns or 'Close' not in data.columns:
+            return jsonify({'error': 'Invalid or empty CSV file - missing required columns'}), 400
+
+        # Convert 'Date' to datetime
+        data['Date'] = pd.to_datetime(data['Date'])
+        data = data.sort_values('Date')
+
+        data.set_index('Date', inplace=True)
+        X = data.index.map(datetime.toordinal).values.reshape(-1, 1)
         y = data['Close'].values.flatten()
         actual_dates = data.index.strftime('%Y-%m-%d').tolist()
 
@@ -70,7 +80,7 @@ def predict_stock_handler(request):
             'predictions': predictions.tolist(),
             'predicted_dates': predicted_dates,
             'actual': y.tolist(),
-            'actual_dates': actual_dates,
+            'actual_dates': [str(date) for date in data.index.date],
             'returns': returns
         })
 
