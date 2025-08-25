@@ -10,7 +10,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import os
 # from app.services.stock_service import get_stock_data_handler
-from app.services.stock_predict import predict_stock_handler
+# from app.services.stock_predict import predict_stock_handler
 
 #
 # Initialize Flask app
@@ -21,14 +21,14 @@ app = Flask(__name__)
 CORS(app)
 
 # API route for fetching stock data (chart + table + news)
-@app.route('/api/stock', methods=['GET'])
-def get_stock_data():
-    return get_stock_data_handler(request)
+# @app.route('/api/stock', methods=['GET'])
+# def get_stock_data():
+#     return get_stock_data_handler(request)
 
-# API route for fetching prediction results
-@app.route('/api/stock/predict', methods=['GET', 'OPTIONS'])
-def predict_stock():
-    return predict_stock_handler(request)
+# # API route for fetching prediction results
+# @app.route('/api/stock/predict', methods=['GET', 'OPTIONS'])
+# def predict_stock():
+#     return predict_stock_handler(request)
 
 # Run the Flask development server
 if __name__ == '__main__':
