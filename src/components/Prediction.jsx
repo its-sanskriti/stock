@@ -20,9 +20,10 @@ function Prediction({ ticker }) {
   const fetchPredictionData = async () => {
     setIsLoading(true); // Start loading
     try {
-      const res = await axios.get(
-        `http://127.0.0.1:10000/api/stock/predict?ticker=${ticker}`
-      );
+      const res = { data: { prediction: 0 } };
+      // const res = await axios.get(
+      //   `http://127.0.0.1:10000/api/stock/predict?ticker=${ticker}`
+      // );
       setPredictedData(res.data.predictions || []);
       setPredictedDates(res.data.predicted_dates || []); // Updated
       setActualData(res.data.actual || []);
