@@ -43,9 +43,10 @@ function Stockdata() {
   const fetchStockInfo = async () => {
     setIsLoading(true);
     try {
-      const res = await axios.get(
-        `http://127.0.0.1:10000/api/stock?ticker=${ticker}&chart_period=${chartPeriod}&table_period=${tablePeriod}`
-      );
+      const res = { data: { chart: [], table: [], news: [] } };
+      // const res = await axios.get(
+      //   `http://127.0.0.1:10000/api/stock?ticker=${ticker}&chart_period=${chartPeriod}&table_period=${tablePeriod}`
+      // );
 
       setStockData(res.data.stock_data);
       setGraphData1(JSON.parse(res.data.graph_data1));
