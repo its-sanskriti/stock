@@ -18,7 +18,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyAQ-8VuwCkrUEI1bkAdwOLqXOfnpeeMDF8",
   authDomain: "stock-analyzer-94ad0.firebaseapp.com",
   projectId: "stock-analyzer-94ad0",
-  storageBucket: "stock-analyzer-94ad0.firebasestorage.app",
+  storageBucket: "stock-analyzer-94ad0.appspot.app",
   messagingSenderId: "249474623096",
   appId: "1:249474623096:web:4980844de2638631b52f8d",
   measurementId: "G-H5TXSSB6S1"
@@ -26,7 +26,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const analytics = getAnalytics(app);
 
 
 
